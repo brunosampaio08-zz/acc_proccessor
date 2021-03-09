@@ -1,7 +1,7 @@
 module ControlUnitOutput(
 	input [5:0] OPCode, 
 	input [2:0] CurrentState, 
-	output reg [46:0] ControlSignals);
+	output reg [54:0] ControlSignals);
 	
 	always@(*)
 	begin
@@ -41,6 +41,13 @@ module ControlUnitOutput(
 					ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 					ControlSignals[45] = 1'b0; //BRKSignal;
 					ControlSignals[46] = 1'b0; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b1; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 				end
 			3'b001: //Second cycle control signals
 				begin
@@ -77,6 +84,13 @@ module ControlUnitOutput(
 					ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 					ControlSignals[45] = 1'b0; //BRKSignal;
 					ControlSignals[46] = 1'b0; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 				end
 			3'b010: //Third cycle control signals
 				begin
@@ -113,6 +127,13 @@ module ControlUnitOutput(
 					ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 					ControlSignals[45] = 1'b0; //BRKSignal;
 					ControlSignals[46] = 1'b0; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 				end
 			3'b011: //Fourth cycle control signals
 				case(OPCode)
@@ -151,6 +172,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 							ControlSignals[46] = 1'b0; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b000001: //CPI
 						begin
@@ -187,6 +215,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 							ControlSignals[46] = 1'b0; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b000010: //CMP
 						begin
@@ -223,6 +258,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 							ControlSignals[46] = 1'b0; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b000011: //ASL
 						begin
@@ -259,6 +301,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 					ControlSignals[46] = 1'b0; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b000100: //ANDI
 						begin
@@ -295,6 +344,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 					ControlSignals[46] = 1'b0; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b000101: //AND
 						begin
@@ -331,6 +387,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 					ControlSignals[46] = 1'b0; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b000110: //ADCI
 						begin
@@ -367,6 +430,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 					ControlSignals[46] = 1'b0; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b000111: //ADC
 						begin
@@ -403,6 +473,56 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+							ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
+						end
+						6'b001000: //TXAX
+						begin
+							ControlSignals[0] = 1'b0; //PCRead;
+							ControlSignals[1] = 1'b0; //IRWrite;
+							ControlSignals[3:2] = 2'b00; //MUXULAInp1Select;
+							ControlSignals[5:4] = 2'b00; //MUXULAInp2Select;
+							ControlSignals[7:6] = 2'b00; //MUXULAInp3Select;
+							ControlSignals[8] = 1'b0; //MUXPCInpSelect;
+							ControlSignals[10:9] = 2'b00; //AddressMUXSelect;
+							ControlSignals[11] = 1'b0; //AddressRead;
+							ControlSignals[12] = 1'b0; //MemDataRead;
+							ControlSignals[13] = 1'b0; //PCWrite;
+							ControlSignals[14] = 1'b0; //IRRead;
+							ControlSignals[15] = 1'b0; //AccRead;
+							ControlSignals[16] = 1'b0; //AccWrite;
+							ControlSignals[17] = 1'b0; //SPRead;
+							ControlSignals[18] = 1'b0; //SPWrite;
+							ControlSignals[19] = 1'b1; //XRead;
+							ControlSignals[20] = 1'b0; //XWrite;
+							ControlSignals[21] = 1'b0; //YRead;
+							ControlSignals[22] = 1'b0; //YWrite;
+							ControlSignals[25:23] = 3'b000; //ULAControl;
+							ControlSignals[27:26] = 2'b00; //MemWriteSelect;
+							ControlSignals[29:28] = 2'b00; //MemWriteSelect2;
+							ControlSignals[30] = 1'b0; //MemDataWrite;
+							ControlSignals[31] = 1'b0; //ProcessorStatusRead;
+							ControlSignals[32] = 1'b0; //ProcessorStatusWrite;
+							ControlSignals[33] = 1'b0; //ALURead;
+							ControlSignals[34] = 1'b0; //MUXPCInp2Select;
+							ControlSignals[38:35] = 4'b0000; //BranchSignals;
+							ControlSignals[40:39] = 2'b00; //OutputInputSignal;
+							ControlSignals[41] = 1'b0; //WaitingInput;
+							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
+							ControlSignals[45] = 1'b0; //BRKSignal;
+							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+							ControlSignals[52:51] = 2'b01; //AuxSignals;
+							ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b001001: //SBCI
 						begin
@@ -439,6 +559,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 							ControlSignals[46] = 1'b0; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b001010: //SBC
 						begin
@@ -475,6 +602,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 							ControlSignals[46] = 1'b0; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b001011: //ORAI
 						begin
@@ -511,6 +645,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 					ControlSignals[46] = 1'b0; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b001100: //ORA
 						begin
@@ -547,6 +688,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 					ControlSignals[46] = 1'b0; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b001101: //LSR
 						begin
@@ -583,6 +731,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 					ControlSignals[46] = 1'b0; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b001110: //EORI
 						begin
@@ -619,6 +774,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 					ControlSignals[46] = 1'b0; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b001111: //EOR
 						begin
@@ -656,16 +818,23 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 					ControlSignals[46] = 1'b0; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
-					6'b010000: //STX
+					6'b010000: //TAXX
 						begin
 							ControlSignals[0] = 1'b0; //PCRead;
 							ControlSignals[1] = 1'b0; //IRWrite;
 							ControlSignals[3:2] = 2'b00; //MUXULAInp1Select;
-							ControlSignals[5:4] = 2'b11; //MUXULAInp2Select;
-							ControlSignals[7:6] = 2'b01; //MUXULAInp3Select;
-							ControlSignals[8] = 1'b1; //MUXPCInpSelect;
-							ControlSignals[10:9] = 2'b10; //AddressMUXSelect;
+							ControlSignals[5:4] = 2'b00; //MUXULAInp2Select;
+							ControlSignals[7:6] = 2'b00; //MUXULAInp3Select;
+							ControlSignals[8] = 1'b0; //MUXPCInpSelect;
+							ControlSignals[10:9] = 2'b00; //AddressMUXSelect;
 							ControlSignals[11] = 1'b0; //AddressRead;
 							ControlSignals[12] = 1'b0; //MemDataRead;
 							ControlSignals[13] = 1'b0; //PCWrite;
@@ -675,23 +844,30 @@ module ControlUnitOutput(
 							ControlSignals[17] = 1'b0; //SPRead;
 							ControlSignals[18] = 1'b0; //SPWrite;
 							ControlSignals[19] = 1'b0; //XRead;
-							ControlSignals[20] = 1'b0; //XWrite;
+							ControlSignals[20] = 1'b1; //XWrite;
 							ControlSignals[21] = 1'b0; //YRead;
 							ControlSignals[22] = 1'b0; //YWrite;
-							ControlSignals[25:23] = 3'b101; //ULAControl;
-							ControlSignals[27:26] = 2'b01; //MemWriteSelect;
+							ControlSignals[25:23] = 3'b000; //ULAControl;
+							ControlSignals[27:26] = 2'b00; //MemWriteSelect;
 							ControlSignals[29:28] = 2'b00; //MemWriteSelect2;
-							ControlSignals[30] = 1'b1; //MemDataWrite;
+							ControlSignals[30] = 1'b0; //MemDataWrite;
 							ControlSignals[31] = 1'b0; //ProcessorStatusRead;
 							ControlSignals[32] = 1'b0; //ProcessorStatusWrite;
 							ControlSignals[33] = 1'b0; //ALURead;
 							ControlSignals[34] = 1'b0; //MUXPCInp2Select;
 							ControlSignals[38:35] = 4'b0000; //BranchSignals;
 							ControlSignals[40:39] = 2'b00; //OutputInputSignal;
-					ControlSignals[41] = 1'b0; //WaitingInput;
+							ControlSignals[41] = 1'b0; //WaitingInput;
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
-					ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+							ControlSignals[52:51] = 2'b10; //AuxSignals;
+							ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b010001: //STA
 						begin
@@ -728,6 +904,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 					ControlSignals[46] = 1'b0; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b010010: //LDYI
 						begin
@@ -764,6 +947,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 					ControlSignals[46] = 1'b0; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b010011: //LDY
 						begin
@@ -800,6 +990,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 					ControlSignals[46] = 1'b0; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b010100: //LDXI
 						begin
@@ -835,7 +1032,14 @@ module ControlUnitOutput(
 							ControlSignals[41] = 1'b0; //WaitingInput;
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
-					ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+							ControlSignals[52:51] = 2'b00; //AuxSignals;
+							ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+							ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b010101: //LDX
 						begin
@@ -868,10 +1072,17 @@ module ControlUnitOutput(
 							ControlSignals[34] = 1'b0; //MUXPCInp2Select;
 							ControlSignals[38:35] = 4'b0000; //BranchSignals;
 							ControlSignals[40:39] = 2'b00; //OutputInputSignal;
-					ControlSignals[41] = 1'b0; //WaitingInput;
+							ControlSignals[41] = 1'b0; //WaitingInput;
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
-					ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+							ControlSignals[52:51] = 2'b00; //AuxSignals;
+							ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+							ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b010110: //LDAI
 						begin
@@ -908,6 +1119,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 					ControlSignals[46] = 1'b0; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b010111: //LDA
 						begin
@@ -940,10 +1158,60 @@ module ControlUnitOutput(
 							ControlSignals[34] = 1'b0; //MUXPCInp2Select;
 							ControlSignals[38:35] = 4'b0000; //BranchSignals;
 							ControlSignals[40:39] = 2'b00; //OutputInputSignal;
-					ControlSignals[41] = 1'b0; //WaitingInput;
+							ControlSignals[41] = 1'b0; //WaitingInput;
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
-					ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+							ControlSignals[52:51] = 2'b00; //AuxSignals;
+							ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
+						end
+					6'b011000: //TAXBR
+						begin
+							ControlSignals[0] = 1'b0; //PCRead;
+							ControlSignals[1] = 1'b0; //IRWrite;
+							ControlSignals[3:2] = 2'b00; //MUXULAInp1Select;
+							ControlSignals[5:4] = 2'b10; //MUXULAInp2Select;
+							ControlSignals[7:6] = 2'b10; //MUXULAInp3Select;
+							ControlSignals[8] = 1'b0; //MUXPCInpSelect;
+							ControlSignals[10:9] = 2'b00; //AddressMUXSelect;
+							ControlSignals[11] = 1'b0; //AddressRead;
+							ControlSignals[12] = 1'b0; //MemDataRead;
+							ControlSignals[13] = 1'b0; //PCWrite;
+							ControlSignals[14] = 1'b0; //IRRead;
+							ControlSignals[15] = 1'b0; //AccRead;
+							ControlSignals[16] = 1'b0; //AccWrite;
+							ControlSignals[17] = 1'b0; //SPRead;
+							ControlSignals[18] = 1'b0; //SPWrite;
+							ControlSignals[19] = 1'b0; //XRead;
+							ControlSignals[20] = 1'b0; //XWrite;
+							ControlSignals[21] = 1'b0; //YRead;
+							ControlSignals[22] = 1'b0; //YWrite;
+							ControlSignals[25:23] = 3'b000; //ULAControl;
+							ControlSignals[27:26] = 2'b00; //MemWriteSelect;
+							ControlSignals[29:28] = 2'b00; //MemWriteSelect2;
+							ControlSignals[30] = 1'b0; //MemDataWrite;
+							ControlSignals[31] = 1'b0; //ProcessorStatusRead;
+							ControlSignals[32] = 1'b0; //ProcessorStatusWrite;
+							ControlSignals[33] = 1'b0; //ALURead;
+							ControlSignals[34] = 1'b0; //MUXPCInp2Select;
+							ControlSignals[38:35] = 4'b0000; //BranchSignals;
+							ControlSignals[40:39] = 2'b00; //OutputInputSignal;
+							ControlSignals[41] = 1'b0; //WaitingInput;
+							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
+							ControlSignals[45] = 1'b0; //BRKSignal;
+							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b1; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+							ControlSignals[52:51] = 2'b10; //AuxSignals;
+							ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b011001: //TXS
 						begin
@@ -979,7 +1247,14 @@ module ControlUnitOutput(
 							ControlSignals[41] = 1'b0; //WaitingInput;
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
-					ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b011010: //TSX
 						begin
@@ -1015,7 +1290,14 @@ module ControlUnitOutput(
 							ControlSignals[41] = 1'b0; //WaitingInput;
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
-					ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b011011: //PLP
 						begin
@@ -1051,7 +1333,14 @@ module ControlUnitOutput(
 							ControlSignals[41] = 1'b0; //WaitingInput;
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
-					ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b011100: //PLA
 						begin
@@ -1087,7 +1376,14 @@ module ControlUnitOutput(
 							ControlSignals[41] = 1'b0; //WaitingInput;
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
-					ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b011101: //PHP
 						begin
@@ -1120,10 +1416,17 @@ module ControlUnitOutput(
 							ControlSignals[34] = 1'b0; //MUXPCInp2Select;
 							ControlSignals[38:35] = 4'b0000; //BranchSignals;
 							ControlSignals[40:39] = 2'b00; //OutputInputSignal;
-					ControlSignals[41] = 1'b0; //WaitingInput;
+							ControlSignals[41] = 1'b0; //WaitingInput;
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
-					ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b011110: //PHA
 						begin
@@ -1159,7 +1462,14 @@ module ControlUnitOutput(
 							ControlSignals[41] = 1'b0; //WaitingInput;
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
-					ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b011111: //STY
 						begin
@@ -1195,7 +1505,57 @@ module ControlUnitOutput(
 							ControlSignals[41] = 1'b0; //WaitingInput;
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
-					ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
+						end
+						6'b100000: //PHPC
+						begin
+							ControlSignals[0] = 1'b0; //PCRead;
+							ControlSignals[1] = 1'b0; //IRWrite;
+							ControlSignals[3:2] = 2'b01; //MUXULAInp1Select;
+							ControlSignals[5:4] = 2'b01; //MUXULAInp2Select;
+							ControlSignals[7:6] = 2'b00; //MUXULAInp3Select;
+							ControlSignals[8] = 1'b0; //MUXPCInpSelect;
+							ControlSignals[10:9] = 2'b00; //AddressMUXSelect;
+							ControlSignals[11] = 1'b0; //AddressRead;
+							ControlSignals[12] = 1'b0; //MemDataRead;
+							ControlSignals[13] = 1'b0; //PCWrite;
+							ControlSignals[14] = 1'b0; //IRRead;
+							ControlSignals[15] = 1'b0; //AccRead;
+							ControlSignals[16] = 1'b0; //AccWrite;
+							ControlSignals[17] = 1'b0; //SPRead;
+							ControlSignals[18] = 1'b1; //SPWrite;
+							ControlSignals[19] = 1'b0; //XRead;
+							ControlSignals[20] = 1'b0; //XWrite;
+							ControlSignals[21] = 1'b0; //YRead;
+							ControlSignals[22] = 1'b0; //YWrite;
+							ControlSignals[25:23] = 3'b011; //ULAControl;
+							ControlSignals[27:26] = 2'b00; //MemWriteSelect;
+							ControlSignals[29:28] = 2'b00; //MemWriteSelect2;
+							ControlSignals[30] = 1'b0; //MemDataWrite;
+							ControlSignals[31] = 1'b0; //ProcessorStatusRead;
+							ControlSignals[32] = 1'b0; //ProcessorStatusWrite;
+							ControlSignals[33] = 1'b1; //ALURead;
+							ControlSignals[34] = 1'b0; //MUXPCInp2Select;
+							ControlSignals[38:35] = 4'b0000; //BranchSignals;
+							ControlSignals[40:39] = 2'b00; //OutputInputSignal;
+							ControlSignals[41] = 1'b0; //WaitingInput;
+							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
+							ControlSignals[45] = 1'b0; //BRKSignal;
+							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b100001: //RTS
 						begin 
@@ -1232,6 +1592,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 					ControlSignals[46] = 1'b0; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b100010: //JSR
 						begin
@@ -1268,6 +1635,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 							ControlSignals[46] = 1'b0; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b100011: //JMP
 						begin
@@ -1304,6 +1678,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 					ControlSignals[46] = 1'b0; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b100100: //BPL
 						begin
@@ -1340,6 +1721,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 					ControlSignals[46] = 1'b0; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b100101: //BNE
 						begin
@@ -1376,6 +1764,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 					ControlSignals[46] = 1'b0; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b100110: //BMI
 						begin
@@ -1408,10 +1803,17 @@ module ControlUnitOutput(
 							ControlSignals[34] = 1'b0; //MUXPCInp2Select;
 							ControlSignals[38:35] = 4'b0100; //BranchSignals;
 							ControlSignals[40:39] = 2'b00; //OutputInputSignal;
-					ControlSignals[41] = 1'b0; //WaitingInput;
+							ControlSignals[41] = 1'b0; //WaitingInput;
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
-					ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b100111: //BEQ
 						begin
@@ -1444,10 +1846,60 @@ module ControlUnitOutput(
 							ControlSignals[34] = 1'b0; //MUXPCInp2Select;
 							ControlSignals[38:35] = 4'b1000; //BranchSignals;
 							ControlSignals[40:39] = 2'b00; //OutputInputSignal;
-					ControlSignals[41] = 1'b0; //WaitingInput;
+							ControlSignals[41] = 1'b0; //WaitingInput;
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
-					ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
+						end
+						6'b101000: //PLPC
+						begin
+							ControlSignals[0] = 1'b0; //PCRead;
+							ControlSignals[1] = 1'b0; //IRWrite;
+							ControlSignals[3:2] = 2'b01; //MUXULAInp1Select;
+							ControlSignals[5:4] = 2'b00; //MUXULAInp2Select;
+							ControlSignals[7:6] = 2'b00; //MUXULAInp3Select;
+							ControlSignals[8] = 1'b0; //MUXPCInpSelect;
+							ControlSignals[10:9] = 2'b00; //AddressMUXSelect;
+							ControlSignals[11] = 1'b0; //AddressRead;
+							ControlSignals[12] = 1'b0; //MemDataRead;
+							ControlSignals[13] = 1'b0; //PCWrite;
+							ControlSignals[14] = 1'b0; //IRRead;
+							ControlSignals[15] = 1'b0; //AccRead;
+							ControlSignals[16] = 1'b0; //AccWrite;
+							ControlSignals[17] = 1'b0; //SPRead;
+							ControlSignals[18] = 1'b0; //SPWrite;
+							ControlSignals[19] = 1'b0; //XRead;
+							ControlSignals[20] = 1'b0; //XWrite;
+							ControlSignals[21] = 1'b0; //YRead;
+							ControlSignals[22] = 1'b0; //YWrite;
+							ControlSignals[25:23] = 3'b101; //ULAControl;
+							ControlSignals[27:26] = 2'b00; //MemWriteSelect;
+							ControlSignals[29:28] = 2'b00; //MemWriteSelect2;
+							ControlSignals[30] = 1'b0; //MemDataWrite;
+							ControlSignals[31] = 1'b0; //ProcessorStatusRead;
+							ControlSignals[32] = 1'b0; //ProcessorStatusWrite;
+							ControlSignals[33] = 1'b0; //ALURead;
+							ControlSignals[34] = 1'b1; //MUXPCInp2Select;
+							ControlSignals[38:35] = 4'b0000; //BranchSignals;
+							ControlSignals[40:39] = 2'b00; //OutputInputSignal;
+							ControlSignals[41] = 1'b0; //WaitingInput;
+							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
+							ControlSignals[45] = 1'b0; //BRKSignal;
+							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+							ControlSignals[52:51] = 2'b00; //AuxSignals;
+							ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+							ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b110000: //TYA
 						begin
@@ -1484,6 +1936,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 					ControlSignals[46] = 1'b0; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b110001: //TXA
 						begin
@@ -1520,6 +1979,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 					ControlSignals[46] = 1'b0; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b110010: //TAY
 						begin
@@ -1556,6 +2022,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 					ControlSignals[46] = 1'b0; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b110011: //TAX
 						begin
@@ -1592,6 +2065,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 					ControlSignals[46] = 1'b0; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b110100: //INY
 						begin
@@ -1628,6 +2108,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 					ControlSignals[46] = 1'b0; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b110101: //INX
 						begin
@@ -1664,6 +2151,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 					ControlSignals[46] = 1'b0; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b110110: //DEY
 						begin
@@ -1696,10 +2190,17 @@ module ControlUnitOutput(
 							ControlSignals[34] = 1'b0; //MUXPCInp2Select;
 							ControlSignals[38:35] = 4'b0000; //BranchSignals;
 							ControlSignals[40:39] = 2'b00; //OutputInputSignal;
-					ControlSignals[41] = 1'b0; //WaitingInput;
+							ControlSignals[41] = 1'b0; //WaitingInput;
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
-					ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+							ControlSignals[52:51] = 2'b00; //AuxSignals;
+							ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b110111: //DEX
 						begin
@@ -1732,10 +2233,146 @@ module ControlUnitOutput(
 							ControlSignals[34] = 1'b0; //MUXPCInp2Select;
 							ControlSignals[38:35] = 4'b0000; //BranchSignals;
 							ControlSignals[40:39] = 2'b00; //OutputInputSignal;
-					ControlSignals[41] = 1'b0; //WaitingInput;
+							ControlSignals[41] = 1'b0; //WaitingInput;
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
-					ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+							ControlSignals[52:51] = 2'b00; //AuxSignals;
+							ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
+						end
+						6'b111000: //SPC
+						begin
+							ControlSignals[0] = 1'b0; //PCRead;
+							ControlSignals[1] = 1'b0; //IRWrite;
+							ControlSignals[3:2] = 2'b00; //MUXULAInp1Select;
+							ControlSignals[5:4] = 2'b00; //MUXULAInp2Select;
+							ControlSignals[7:6] = 2'b00; //MUXULAInp3Select;
+							ControlSignals[8] = 1'b0; //MUXPCInpSelect;
+							ControlSignals[10:9] = 2'b00; //AddressMUXSelect;
+							ControlSignals[11] = 1'b0; //AddressRead;
+							ControlSignals[12] = 1'b0; //MemDataRead;
+							ControlSignals[13] = 1'b1; //PCWrite;
+							ControlSignals[14] = 1'b0; //IRRead;
+							ControlSignals[15] = 1'b0; //AccRead;
+							ControlSignals[16] = 1'b0; //AccWrite;
+							ControlSignals[17] = 1'b0; //SPRead;
+							ControlSignals[18] = 1'b0; //SPWrite;
+							ControlSignals[19] = 1'b0; //XRead;
+							ControlSignals[20] = 1'b0; //XWrite;
+							ControlSignals[21] = 1'b0; //YRead;
+							ControlSignals[22] = 1'b0; //YWrite;
+							ControlSignals[25:23] = 3'b000; //ULAControl;
+							ControlSignals[27:26] = 2'b00; //MemWriteSelect;
+							ControlSignals[29:28] = 2'b00; //MemWriteSelect2;
+							ControlSignals[30] = 1'b0; //MemDataWrite;
+							ControlSignals[31] = 1'b0; //ProcessorStatusRead;
+							ControlSignals[32] = 1'b0; //ProcessorStatusWrite;
+							ControlSignals[33] = 1'b0; //ALURead;
+							ControlSignals[34] = 1'b0; //MUXPCInp2Select;
+							ControlSignals[38:35] = 4'b0000; //BranchSignals;
+							ControlSignals[40:39] = 2'b00; //OutputInputSignal;
+							ControlSignals[41] = 1'b0; //WaitingInput;
+							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
+							ControlSignals[45] = 1'b0; //BRKSignal;
+							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b1; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+							ControlSignals[52:51] = 2'b10; //AuxSignals;
+							ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+							ControlSignals[54] = 1'b1; //savedPCReadSignal;
+						end
+					6'b111001: //SFF
+						begin
+							ControlSignals[0] = 1'b0; //PCRead;
+							ControlSignals[1] = 1'b0; //IRWrite;
+							ControlSignals[3:2] = 2'b00; //MUXULAInp1Select;
+							ControlSignals[5:4] = 2'b00; //MUXULAInp2Select;
+							ControlSignals[7:6] = 2'b00; //MUXULAInp3Select;
+							ControlSignals[8] = 1'b0; //MUXPCInpSelect;
+							ControlSignals[10:9] = 2'b00; //AddressMUXSelect;
+							ControlSignals[11] = 1'b0; //AddressRead;
+							ControlSignals[12] = 1'b0; //MemDataRead;
+							ControlSignals[13] = 1'b0; //PCWrite;
+							ControlSignals[14] = 1'b0; //IRRead;
+							ControlSignals[15] = 1'b0; //AccRead;
+							ControlSignals[16] = 1'b0; //AccWrite;
+							ControlSignals[17] = 1'b0; //SPRead;
+							ControlSignals[18] = 1'b0; //SPWrite;
+							ControlSignals[19] = 1'b0; //XRead;
+							ControlSignals[20] = 1'b0; //XWrite;
+							ControlSignals[21] = 1'b0; //YRead;
+							ControlSignals[22] = 1'b0; //YWrite;
+							ControlSignals[25:23] = 3'b000; //ULAControl;
+							ControlSignals[27:26] = 2'b00; //MemWriteSelect;
+							ControlSignals[29:28] = 2'b00; //MemWriteSelect2;
+							ControlSignals[30] = 1'b0; //MemDataWrite;
+							ControlSignals[31] = 1'b0; //ProcessorStatusRead;
+							ControlSignals[32] = 1'b1; //ProcessorStatusWrite;
+							ControlSignals[33] = 1'b0; //ALURead;
+							ControlSignals[34] = 1'b0; //MUXPCInp2Select;
+							ControlSignals[38:35] = 4'b0000; //BranchSignals;
+							ControlSignals[40:39] = 2'b00; //OutputInputSignal;
+							ControlSignals[41] = 1'b0; //WaitingInput;
+							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
+							ControlSignals[45] = 1'b0; //BRKSignal;
+							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b1; //procFinishSignal;
+							ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
+						end
+						6'b111010: //CPF
+						begin
+							ControlSignals[0] = 1'b0; //PCRead;
+							ControlSignals[1] = 1'b0; //IRWrite;
+							ControlSignals[3:2] = 2'b00; //MUXULAInp1Select;
+							ControlSignals[5:4] = 2'b00; //MUXULAInp2Select;
+							ControlSignals[7:6] = 2'b00; //MUXULAInp3Select;
+							ControlSignals[8] = 1'b0; //MUXPCInpSelect;
+							ControlSignals[10:9] = 2'b00; //AddressMUXSelect;
+							ControlSignals[11] = 1'b0; //AddressRead;
+							ControlSignals[12] = 1'b0; //MemDataRead;
+							ControlSignals[13] = 1'b0; //PCWrite;
+							ControlSignals[14] = 1'b0; //IRRead;
+							ControlSignals[15] = 1'b0; //AccRead;
+							ControlSignals[16] = 1'b0; //AccWrite;
+							ControlSignals[17] = 1'b0; //SPRead;
+							ControlSignals[18] = 1'b0; //SPWrite;
+							ControlSignals[19] = 1'b0; //XRead;
+							ControlSignals[20] = 1'b0; //XWrite;
+							ControlSignals[21] = 1'b0; //YRead;
+							ControlSignals[22] = 1'b1; //YWrite;
+							ControlSignals[25:23] = 3'b000; //ULAControl;
+							ControlSignals[27:26] = 2'b00; //MemWriteSelect;
+							ControlSignals[29:28] = 2'b00; //MemWriteSelect2;
+							ControlSignals[30] = 1'b0; //MemDataWrite;
+							ControlSignals[31] = 1'b0; //ProcessorStatusRead;
+							ControlSignals[32] = 1'b0; //ProcessorStatusWrite;
+							ControlSignals[33] = 1'b0; //ALURead;
+							ControlSignals[34] = 1'b0; //MUXPCInp2Select;
+							ControlSignals[38:35] = 4'b0000; //BranchSignals;
+							ControlSignals[40:39] = 2'b00; //OutputInputSignal;
+							ControlSignals[41] = 1'b0; //WaitingInput;
+							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
+							ControlSignals[45] = 1'b0; //BRKSignal;
+							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b1; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b111100: //INT
 						begin
@@ -1768,10 +2405,17 @@ module ControlUnitOutput(
 							ControlSignals[34] = 1'b0; //MUXPCInp2Select;
 							ControlSignals[38:35] = 4'b0000; //BranchSignals;
 							ControlSignals[40:39] = 2'b01; //OutputInputSignal;
-					ControlSignals[41] = 1'b1; //WaitingInput;
+							ControlSignals[41] = 1'b1; //WaitingInput;
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
-					ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b111011: //OUP
 						begin
@@ -1807,7 +2451,14 @@ module ControlUnitOutput(
 							ControlSignals[41] = 1'b0; //WaitingInput;
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
-					ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b101001: //DIVI
 					begin
@@ -1844,6 +2495,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 							ControlSignals[46] = 1'b1; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 					end
 					6'b101010: //DIV
 					begin
@@ -1880,6 +2538,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 							ControlSignals[46] = 1'b1; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 					end
 					6'b101011: //MULI
 					begin
@@ -1916,6 +2581,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 							ControlSignals[46] = 1'b1; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 					end
 					6'b101100: //MUL
 					begin
@@ -1952,6 +2624,14 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 							ControlSignals[46] = 1'b1; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
+							
 					end
 					6'b101101: //CLV
 					begin
@@ -1988,6 +2668,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b001; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 					ControlSignals[46] = 1'b0; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b101110: //CLN
 					begin
@@ -2024,6 +2711,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b010; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 					ControlSignals[46] = 1'b0; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 					end
 					6'b101111: //CLZ
 					begin
@@ -2060,6 +2754,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b100; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 					ControlSignals[46] = 1'b0; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 					end
 					6'b111110: //NOP
 					begin
@@ -2095,7 +2796,14 @@ module ControlUnitOutput(
 							ControlSignals[41] = 1'b0; //WaitingInput;
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
-					ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+							ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 					end
 					6'b111111: //BRK
 					begin
@@ -2132,6 +2840,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b1; //BRKSignal;
 							ControlSignals[46] = 1'b0; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 					end
 					default:
 						begin
@@ -2168,6 +2883,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 					ControlSignals[46] = 1'b0; //ALUExtra;
+					ControlSignals[47] = 1'b0; //BRWriteSignal;
+					ControlSignals[48] = 1'b0; //CountSignal;
+					ControlSignals[49] = 1'b0; //CFFSignal;
+					ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					endcase
 			3'b100: //Fifth cycle control signals
@@ -2203,10 +2925,17 @@ module ControlUnitOutput(
 							ControlSignals[34] = 1'b0; //MUXPCInp2Select;
 							ControlSignals[38:35] = 4'b0000; //BranchSignals;
 							ControlSignals[40:39] = 2'b00; //OutputInputSignal;
-					ControlSignals[41] = 1'b0; //WaitingInput;
+							ControlSignals[41] = 1'b0; //WaitingInput;
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
-					ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b011100: //PLA
 						begin
@@ -2239,10 +2968,17 @@ module ControlUnitOutput(
 							ControlSignals[34] = 1'b0; //MUXPCInp2Select;
 							ControlSignals[38:35] = 4'b0000; //BranchSignals;
 							ControlSignals[40:39] = 2'b00; //OutputInputSignal;
-					ControlSignals[41] = 1'b0; //WaitingInput;
+							ControlSignals[41] = 1'b0; //WaitingInput;
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
-					ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b011101: //PHP
 						begin
@@ -2275,10 +3011,17 @@ module ControlUnitOutput(
 							ControlSignals[34] = 1'b0; //MUXPCInp2Select;
 							ControlSignals[38:35] = 4'b0000; //BranchSignals;
 							ControlSignals[40:39] = 2'b00; //OutputInputSignal;
-					ControlSignals[41] = 1'b0; //WaitingInput;
+							ControlSignals[41] = 1'b0; //WaitingInput;
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
-					ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b011110: //PHA
 						begin
@@ -2311,10 +3054,103 @@ module ControlUnitOutput(
 							ControlSignals[34] = 1'b0; //MUXPCInp2Select;
 							ControlSignals[38:35] = 4'b0000; //BranchSignals;
 							ControlSignals[40:39] = 2'b00; //OutputInputSignal;
-					ControlSignals[41] = 1'b0; //WaitingInput;
+							ControlSignals[41] = 1'b0; //WaitingInput;
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
-					ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
+						end
+						6'b100000: //PHPC
+						begin
+							ControlSignals[0] = 1'b0; //PCRead;
+							ControlSignals[1] = 1'b0; //IRWrite;
+							ControlSignals[3:2] = 2'b01; //MUXULAInp1Select;
+							ControlSignals[5:4] = 2'b01; //MUXULAInp2Select;
+							ControlSignals[7:6] = 2'b00; //MUXULAInp3Select;
+							ControlSignals[8] = 1'b0; //MUXPCInpSelect;
+							ControlSignals[10:9] = 2'b00; //AddressMUXSelect;
+							ControlSignals[11] = 1'b0; //AddressRead;
+							ControlSignals[12] = 1'b0; //MemDataRead;
+							ControlSignals[13] = 1'b0; //PCWrite;
+							ControlSignals[14] = 1'b0; //IRRead;
+							ControlSignals[15] = 1'b0; //AccRead;
+							ControlSignals[16] = 1'b0; //AccWrite;
+							ControlSignals[17] = 1'b0; //SPRead;
+							ControlSignals[18] = 1'b0; //SPWrite;
+							ControlSignals[19] = 1'b0; //XRead;
+							ControlSignals[20] = 1'b0; //XWrite;
+							ControlSignals[21] = 1'b0; //YRead;
+							ControlSignals[22] = 1'b0; //YWrite;
+							ControlSignals[25:23] = 3'b000; //ULAControl;
+							ControlSignals[27:26] = 2'b11; //MemWriteSelect;
+							ControlSignals[29:28] = 2'b00; //MemWriteSelect2;
+							ControlSignals[30] = 1'b1; //MemDataWrite;
+							ControlSignals[31] = 1'b0; //ProcessorStatusRead;
+							ControlSignals[32] = 1'b0; //ProcessorStatusWrite;
+							ControlSignals[33] = 1'b0; //ALURead;
+							ControlSignals[34] = 1'b0; //MUXPCInp2Select;
+							ControlSignals[38:35] = 4'b0000; //BranchSignals;
+							ControlSignals[40:39] = 2'b00; //OutputInputSignal;
+							ControlSignals[41] = 1'b0; //WaitingInput;
+							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
+							ControlSignals[45] = 1'b0; //BRKSignal;
+							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+							ControlSignals[52:51] = 2'b00; //AuxSignals;
+							ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
+						end
+					6'b101000: //PLPC
+						begin
+							ControlSignals[0] = 1'b0; //PCRead;
+							ControlSignals[1] = 1'b0; //IRWrite;
+							ControlSignals[3:2] = 2'b01; //MUXULAInp1Select;
+							ControlSignals[5:4] = 2'b01; //MUXULAInp2Select;
+							ControlSignals[7:6] = 2'b00; //MUXULAInp3Select;
+							ControlSignals[8] = 1'b0; //MUXPCInpSelect;
+							ControlSignals[10:9] = 2'b00; //AddressMUXSelect;
+							ControlSignals[11] = 1'b0; //AddressRead;
+							ControlSignals[12] = 1'b1; //MemDataRead;
+							ControlSignals[13] = 1'b0; //PCWrite;
+							ControlSignals[14] = 1'b0; //IRRead;
+							ControlSignals[15] = 1'b0; //AccRead;
+							ControlSignals[16] = 1'b0; //AccWrite;
+							ControlSignals[17] = 1'b0; //SPRead;
+							ControlSignals[18] = 1'b1; //SPWrite;
+							ControlSignals[19] = 1'b0; //XRead;
+							ControlSignals[20] = 1'b0; //XWrite;
+							ControlSignals[21] = 1'b0; //YRead;
+							ControlSignals[22] = 1'b0; //YWrite;
+							ControlSignals[25:23] = 3'b000; //ULAControl;
+							ControlSignals[27:26] = 2'b00; //MemWriteSelect;
+							ControlSignals[29:28] = 2'b00; //MemWriteSelect2;
+							ControlSignals[30] = 1'b0; //MemDataWrite;
+							ControlSignals[31] = 1'b0; //ProcessorStatusRead;
+							ControlSignals[32] = 1'b0; //ProcessorStatusWrite;
+							ControlSignals[33] = 1'b1; //ALURead;
+							ControlSignals[34] = 1'b1; //MUXPCInp2Select;
+							ControlSignals[38:35] = 4'b0000; //BranchSignals;
+							ControlSignals[40:39] = 2'b00; //OutputInputSignal;
+							ControlSignals[41] = 1'b0; //WaitingInput;
+							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
+							ControlSignals[45] = 1'b0; //BRKSignal;
+							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+							ControlSignals[52:51] = 2'b00; //AuxSignals;
+							ControlSignals[53] = 1'b1; //savedPCWriteSignal;
+							ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b100001: //RTS
 						begin
@@ -2347,10 +3183,17 @@ module ControlUnitOutput(
 							ControlSignals[34] = 1'b1; //MUXPCInp2Select;
 							ControlSignals[38:35] = 4'b0000; //BranchSignals;
 							ControlSignals[40:39] = 2'b00; //OutputInputSignal;
-					ControlSignals[41] = 1'b0; //WaitingInput;
+							ControlSignals[41] = 1'b0; //WaitingInput;
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
-					ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+							ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b100010: //JSR
 						begin
@@ -2383,10 +3226,17 @@ module ControlUnitOutput(
 							ControlSignals[34] = 1'b0; //MUXPCInp2Select;
 							ControlSignals[38:35] = 4'b0000; //BranchSignals;
 							ControlSignals[40:39] = 2'b00; //OutputInputSignal;
-					ControlSignals[41] = 1'b0; //WaitingInput;
+							ControlSignals[41] = 1'b0; //WaitingInput;
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
-					ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+							ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b111100: //INT
 						begin
@@ -2422,7 +3272,14 @@ module ControlUnitOutput(
 							ControlSignals[41] = 1'b0; //WaitingInput;
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
-					ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					6'b111111: //BRK
 					begin
@@ -2459,6 +3316,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b1; //BRKSignal;
 							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 					end
 					default:
 						begin
@@ -2495,6 +3359,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 				endcase
 			3'b101: //Sixth cycle control signals
@@ -2533,7 +3404,14 @@ module ControlUnitOutput(
 							ControlSignals[41] = 1'b0; //WaitingInput;
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
-					ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					default:
 						begin
@@ -2570,6 +3448,13 @@ module ControlUnitOutput(
 							ControlSignals[44:42] = 3'b000; //SRClearsSignals;
 							ControlSignals[45] = 1'b0; //BRKSignal;
 							ControlSignals[46] = 1'b0; //ALUExtra;
+							ControlSignals[47] = 1'b0; //BRWriteSignal;
+							ControlSignals[48] = 1'b0; //CountSignal;
+							ControlSignals[49] = 1'b0; //CFFSignal;
+							ControlSignals[50] = 1'b0; //procFinishSignal;
+					ControlSignals[52:51] = 2'b00; //AuxSignals;
+					ControlSignals[53] = 1'b0; //savedPCWriteSignal;
+					ControlSignals[54] = 1'b0; //savedPCReadSignal;
 						end
 					endcase
 				default: ControlSignals = 46'd0;

@@ -1,8 +1,11 @@
 module PCWriteLogic(
-	input [31:0] PCMuxOut, 
-	output reg [31:0] ProgramCounter, 
+	input [31:0] PCMuxOut,
+	input [31:0] savedPCInpt,
+	output reg [31:0] ProgramCounter,
+	output reg [31:0] savedPC,
 	input [6:0] BranchLogicSignals, 
-	input [2:0] PCWriteSignals, 
+	input [3:0] PCWriteSignals,
+	input savedPCWriteSignal,
 	input clock,
 	input reset);
 	
@@ -22,11 +25,17 @@ module PCWriteLogic(
 		endcase
 		
 		case(PCWriteSignals)
-			3'b011: ProgramCounter = PCMuxOut; //Writes PC during cycle 2
-			3'b101: ProgramCounter = PCMuxOut; //Writes PC if instruction is RTS
-			3'b111: ProgramCounter = PCMuxOut; //Writes also if both signals are ON
+			4'b0011: ProgramCounter = PCMuxOut; //Writes PC during cycle 2
+			4'b0101: ProgramCounter = PCMuxOut; //Writes PC if instruction is RTS
+			4'b0111: ProgramCounter = PCMuxOut; //Writes also if both signals are ON
+			4'b1001: ProgramCounter = PCMuxOut; //Writes savedPC to PC
 			default: ProgramCounter = ProgramCounter;
 		endcase
+		
+		case(savedPCWriteSignal)
+			1'b1: savedPC = savedPCInpt;
+		endcase
+			
 		
 		if(reset == 1)
 			ProgramCounter = 32'd0;

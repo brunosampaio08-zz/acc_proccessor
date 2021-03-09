@@ -21,6 +21,8 @@ module ControlUnitNextState(
 					6'b011111: NextState = 3'b100;
 					6'b100001: NextState = 3'b100;
 					6'b100010: NextState = 3'b100;
+					6'b101000: NextState = 3'b100;
+					6'b100000: NextState = 3'b100;
 					6'b111100:
 					begin
 						if(subiu == desceu)
